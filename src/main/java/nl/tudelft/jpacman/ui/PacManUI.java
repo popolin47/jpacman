@@ -68,10 +68,12 @@ public class PacManUI extends JFrame {
     public PacManUI(final Game game, final Map<String, Action> buttons,
                     final Map<Integer, Action> keyMappings,
                     ScoreFormatter scoreFormatter) {
-        super("JPacman");
+
+        super("JPacman 2024");
         assert game != null;
         assert buttons != null;
         assert keyMappings != null;
+
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
