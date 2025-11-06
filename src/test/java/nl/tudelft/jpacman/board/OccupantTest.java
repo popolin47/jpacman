@@ -8,50 +8,52 @@ import org.junit.jupiter.api.Test;
 /**
  * Test suite to confirm that {@link Unit}s correctly (de)occupy squares.
  *
- * @author Jeroen Roosen 
- *
+ * @author Jeroen Roosen
  */
 class OccupantTest {
 
-    /**
-     * The unit under test.
-     */
     private Unit unit;
 
-    /**
-     * Resets the unit under test.
-     */
     @BeforeEach
     void setUp() {
         unit = new BasicUnit();
     }
 
     /**
-     * Asserts that a unit has no square to start with.
+     * A unit should not start with a square assigned.
      */
     @Test
     void noStartSquare() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+        assertThat(unit.hasSquare()).isFalse();
     }
 
     /**
-     * Tests that the unit indeed has the target square as its base after
-     * occupation.
+     * After occupying a square, the unit should be linked to that square,
+     * and the square should contain that same unit.
      */
     @Test
     void testOccupy() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+        Square square = new BasicSquare();
+        unit.occupy(square);
+
+        assertThat(unit.getSquare()).isEqualTo(square);
+        assertThat(square.getOccupants()).contains(unit);
     }
 
     /**
-     * Test that the unit indeed has the target square as its base after
-     * double occupation.
+     * When reoccupying another square, the unit should move to the new square.
+     * The old square should no longer contain the unit.
      */
     @Test
     void testReoccupy() {
-        // Remove the following placeholder:
-        assertThat(unit).isNotNull();
+        Square first = new BasicSquare();
+        Square second = new BasicSquare();
+
+        unit.occupy(first);
+        unit.occupy(second);
+
+        assertThat(unit.getSquare()).isEqualTo(second);
+        assertThat(second.getOccupants()).contains(unit);
+        assertThat(first.getOccupants()).doesNotContain(unit);
     }
 }
