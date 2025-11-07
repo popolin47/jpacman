@@ -4,9 +4,13 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 
-
+/**
+ * Unit tests for the Board class, verifying board construction and tile behavior.
+ */
 public class BoardTest {
-
+    /**
+     * Tests if the board correctly initializes with given dimensions.
+     */
     @Test
     void testValidBoardInvariant() {
         Square[][] grid = new Square[1][1];
@@ -18,6 +22,9 @@ public class BoardTest {
         assertThat(board.invariant()).isTrue();
     }
 
+    /**
+     * Tests whether tiles are correctly connected on the board.
+     */
     @Test
     void testInvalidBoardInvariantAndSquareAt() {
 

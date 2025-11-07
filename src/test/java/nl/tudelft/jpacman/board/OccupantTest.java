@@ -10,10 +10,13 @@ import org.junit.jupiter.api.Test;
  *
  * @author Jeroen Roosen
  */
+
 class OccupantTest {
 
     private Unit unit;
-
+    /**
+     * Tests behavior of the Occupant class.
+     */
     @BeforeEach
     void setUp() {
         unit = new BasicUnit();
