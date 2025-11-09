@@ -48,5 +48,29 @@ public class MapParserTest {
         Mockito.verify(boardFactory, Mockito.atLeastOnce()).createWall();
     }
 
+    /**
+     * Test for the parseMap method (bad map).
+     */
+    @Test
+    public void testParseMapWrong1() {
+        ADDYOURCODEHERE thrown =
+            Assertions.assertThrows(ADDYOURCODEHERE.class, () -> {
+                MockitoAnnotations.initMocks(this);
+                assertNotNull(boardFactory);
+                assertNotNull(levelFactory);
+                MapParser mapParser = new MapParser(levelFactory, boardFactory);
+                ArrayList<String> map = new ArrayList<>();
+                /*
+                Create a map with inconsistent size between
+                each row or contain invalid characters
+                */
+                mapParser.parseMap(map);
+            });
+        Assertions.assertEquals(ADDYOURCODEHERE, thrown.getMessage());
+    }
+
+
+
+
 }
 
