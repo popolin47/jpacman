@@ -49,7 +49,7 @@ public class MapParserTest {
 
         Mockito.verify(boardFactory, Mockito.atLeastOnce()).createWall();
     }
-
+ 
     /**
      * Test for the parseMap method (bad map).
      */
